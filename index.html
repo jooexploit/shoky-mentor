@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoky Mentor - Frontend Developer Tools & Games Hub</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <meta name="description"
+        content="Your ultimate hub for frontend development tools, educational games, CSS generators, and learning resources. Perfect for developers of all levels.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <!-- Left Section: Logo and Brand -->
+                <div class="nav-left">
+                    <a href="#" class="nav-brand" id="navBrand">
+                        <div class="brand-logo">
+                            <img src="logo.png" alt="Shoky Mentor Logo">
+                        </div>
+                        <div class="brand-text">
+                            <span class="brand-name">Shoky Mentor</span>
+                            <span class="brand-tagline">Frontend Tools</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Center Section: Search Bar -->
+                <div class="nav-center">
+                    <div class="search-container" id="searchContainer">
+                        <input type="text" id="searchInput" placeholder="Search tools, games, or resources..."
+                            class="search-input" autocomplete="off" role="combobox" aria-expanded="false"
+                            aria-haspopup="listbox" aria-label="Search tools and resources">
+                        <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                        <button class="search-clear" id="searchClear" type="button" aria-label="Clear search">
+                            <i class="fas fa-times" aria-hidden="true"></i>
+                        </button>
+                        <div class="search-suggestions" id="searchSuggestions" role="listbox"
+                            aria-label="Search suggestions">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Section: Action Buttons -->
+                <div class="nav-right">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+
+                    <button class="favorites-btn" id="favoritesBtn" title="View favorites">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorites-count">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" title="Toggle menu"
+                        aria-label="Toggle navigation menu">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Overlay -->
+                <div class="mobile-menu" id="mobileMenu">
+                    <div class="mobile-search">
+                        <div class="search-container mobile-search-container">
+                            <input type="text" id="mobileSearchInput" placeholder="Search tools, games, or resources..."
+                                class="search-input mobile-search-input" autocomplete="off">
+                            <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="mobile-actions">
+                        <button class="mobile-theme-toggle" id="mobileThemeToggle" title="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                            <span>Toggle Theme</span>
+                        </button>
+                        <button class="mobile-favorites-btn" id="mobileFavoritesBtn" title="View favorites">
+                            <i class="fas fa-heart"></i>
+                            <span>Favorites (<span class="mobile-favorites-count">0</span>)</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <canvas class="particles-canvas" id="heroParticles" aria-hidden="true"></canvas>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Frontend Developer's Toolkit</h1>
+                    <p class="hero-subtitle">Discover the best tools, games, and resources to level up your frontend
+                        development skills</p>
+
+                    <!-- Call to Action Buttons -->
+                    <div class="hero-actions" role="navigation" aria-label="Main action buttons">
+                        <button class="cta-btn cta-primary" id="exploreToolsBtn" aria-describedby="explore-desc">
+                            <i class="fas fa-rocket" aria-hidden="true"></i>
+                            <span>Explore Tools</span>
+                        </button>
+                        <button class="cta-btn cta-secondary" id="playGamesBtn" aria-describedby="games-desc">
+                            <i class="fas fa-gamepad" aria-hidden="true"></i>
+                            <span>Play Games</span>
+                        </button>
+                        <button class="cta-btn cta-outline" id="learnMoreBtn" aria-describedby="learn-desc">
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                            <span>Learn More</span>
+                        </button>
+                    </div>
+
+                    <!-- Hidden descriptions for screen readers -->
+                    <div class="sr-only">
+                        <div id="explore-desc">Navigate to browse all available development tools and resources</div>
+                        <div id="games-desc">Jump to educational games section for interactive learning</div>
+                        <div id="learn-desc">Go to learning resources and educational content</div>
+                    </div>
+
+                    <!-- Scroll Indicator -->
+                    <!-- <div class="scroll-indicator" id="scrollIndicator" role="button" tabindex="0"
+                        aria-label="Scroll down to discover more content">
+                        <div class="scroll-text">Discover More</div>
+                        <div class="scroll-arrow">
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </div>
+                    </div> -->
+
+                    <div class="hero-stats">
+                        <div class="stat reveal reveal-delay-1">
+                            <span class="stat-number" id="totalTools" data-target="164" data-suffix="+">0</span>
+                            <span class="stat-label">Tools & Resources</span>
+                        </div>
+                        <div class="stat reveal reveal-delay-2">
+                            <span class="stat-number" id="totalCategories" data-target="8">0</span>
+                            <span class="stat-label">Categories</span>
+                        </div>
+                        <div class="stat reveal reveal-delay-3">
+                            <span class="stat-number" id="totalGames" data-target="12">0</span>
+                            <span class="stat-label">Interactive Games</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Filter & Sort Controls -->
+            <section class="controls-section">
+                <div class="filter-controls">
+                    <div class="category-filters">
+                        <button class="filter-btn active" data-category="all">
+                            <i class="fas fa-th-large"></i>
+                            All Tools
+                        </button>
+                        <button class="filter-btn" data-category="games">
+                            <i class="fas fa-gamepad"></i>
+                            Educational Games
+                        </button>
+                        <button class="filter-btn" data-category="css-tools">
+                            <i class="fas fa-palette"></i>
+                            CSS Tools
+                        </button>
+                        <button class="filter-btn" data-category="performance">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Performance
+                        </button>
+                        <button class="filter-btn" data-category="learning">
+                            <i class="fas fa-graduation-cap"></i>
+                            Learning
+                        </button>
+                        <button class="filter-btn" data-category="generators">
+                            <i class="fas fa-magic"></i>
+                            Generators
+                        </button>
+                        <button class="filter-btn" data-category="utilities">
+                            <i class="fas fa-tools"></i>
+                            Utilities
+                        </button>
+                        <button class="filter-btn" data-category="design">
+                            <i class="fas fa-paint-brush"></i>
+                            Design
+                        </button>
+                    </div>
+
+                    <div class="sort-controls">
+                        <select id="sortSelect" class="sort-select">
+                            <option value="name">Sort by Name</option>
+                            <option value="category">Sort by Category</option>
+                            <option value="popularity">Sort by Popularity</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+
+                        <button class="view-toggle" id="viewToggle" title="Toggle view">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Tools Carousel Section -->
+            <section class="featured-carousel-section" id="featured-carousel-section"
+                aria-labelledby="featured-tools-heading">
+                <div class="section-header">
+                    <h2 class="section-title" id="featured-tools-heading">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        Featured Tools
+                    </h2>
+                    <p class="section-subtitle">Handpicked tools that are essential for every frontend developer</p>
+                </div>
+                <div class="carousel-container" role="region" aria-label="Featured tools carousel" aria-live="polite">
+                    <button class="carousel-btn carousel-prev carousel-nav" id="carouselPrev"
+                        aria-label="Show previous featured tools" tabindex="0" type="button">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        <span class="sr-only">Previous</span>
+                    </button>
+                    <div class="carousel-wrapper" role="group" aria-label="Featured tools list">
+                        <div class="carousel-track" id="carouselTrack" role="list"
+                            aria-label="Featured frontend development tools">
+                            <!-- Featured tools will be dynamically generated here -->
+                        </div>
+                    </div>
+                    <button class="carousel-btn carousel-next carousel-nav" id="carouselNext"
+                        aria-label="Show next featured tools" tabindex="0" type="button">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        <span class="sr-only">Next</span>
+                    </button>
+                </div>
+                <div class="carousel-indicators" id="carouselIndicators" role="tablist"
+                    aria-label="Carousel page indicators">
+                    <!-- Carousel dots will be generated here -->
+                </div>
+                <div class="sr-only" aria-live="assertive" id="carousel-status"></div>
+            </section>
+
+            <!-- All Tools Section -->
+            <section class="tools-section">
+                <!-- Background watermark logo -->
+                <div class="section-watermark" aria-hidden="true">
+                    <img src="logo.png" alt="" class="watermark-logo">
+                </div>
+
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-th-large"></i>
+                        All Tools
+                    </h2>
+                    <p class="section-subtitle">Browse our complete collection of frontend development tools</p>
+                </div>
+                <div class="tools-grid" id="toolsGrid">
+                    <!-- Tools will be dynamically generated here -->
+                </div>
+
+                <!-- No Results Message -->
+                <div class="no-results" id="noResults" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>No tools found</h3>
+                    <p>Try adjusting your search or filter criteria</p>
+                </div>
+            </section>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn" style="display: none;">
+                    Load More Tools
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Shoky Mentor</h3>
+                    <p>Your ultimate frontend development companion. Discover, learn, and create with the best tools in
+                        the industry.</p>
+                    <div class="social-links">
+                        <a href="" title="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#games">Educational Games</a></li>
+                        <li><a href="#css-tools">CSS Tools</a></li>
+                        <li><a href="#performance">Performance</a></li>
+                        <li><a href="#learning">Learning Resources</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Popular Tools</h4>
+                    <ul>
+                        <li><a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a></li>
+                        <li><a href="https://cssgridgarden.com/" target="_blank">CSS Grid Garden</a></li>
+                        <li><a href="https://cssgradient.io/" target="_blank">CSS Gradient</a></li>
+                        <li><a href="https://animate.style/" target="_blank">Animate.css</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contribute</h4>
+                    <p>Know a great frontend tool? <a href="#contribute">Suggest it here!</a></p>
+                    <p>Found a bug? <a href="#report">Report it!</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Shoky Mentor. Made with ❤️ for the frontend community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Favorites Modal -->
+    <div class="modal" id="favoritesModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Favorite Tools</h2>
+                <button class="modal-close" id="closeFavorites">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="favorites-list" id="favoritesList">
+                    <div class="empty-favorites">
+                        <i class="fas fa-heart-broken"></i>
+                        <p>No favorites yet! Start exploring and add tools you love.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Detail Modal -->
+    <div class="modal" id="toolModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalToolName">Tool Name</h2>
+                <button class="modal-close" id="closeToolModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tool-detail" id="toolDetail">
+                    <!-- Tool details will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading awesome tools...</p>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" title="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
