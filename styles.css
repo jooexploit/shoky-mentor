@@ -2944,7 +2944,10 @@ body.mobile-menu-open {
         gap: 0.75rem;
         align-items: stretch;
     }
-
+    .social-links{
+        justify-content: center;
+        align-items: center;
+    }
     .nav-brand {
         font-size: var(--font-size-lg);
         justify-content: center;
