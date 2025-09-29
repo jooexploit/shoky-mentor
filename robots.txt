@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /index.html
+Allow: /manifest.json
+Allow: /sw.js
+
+# Static assets
+Allow: /styles.css
+Allow: /script.js
+Allow: /logo.png
+
+# Prevent crawling of development files
+Disallow: /README.md
+Disallow: /CONTRIBUTING.md
+Disallow: /LICENSE
+Disallow: /CHANGELOG.md
+Disallow: /SECURITY.md
+Disallow: /.github/
+Disallow: /.htaccess
+Disallow: /netlify.toml
+Disallow: /vercel.json
+
+# Sitemap
+Sitemap: https://jooexploit.github.io/shoky-mentor/sitemap.xml
+
+# Crawl delay (optional, adjust as needed)
+Crawl-delay: 1

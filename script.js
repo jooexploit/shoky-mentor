@@ -602,6 +602,9 @@ function initializeApp() {
   allTools = [...toolsData];
   filteredTools = [...allTools];
 
+  // Register Service Worker
+  registerServiceWorker();
+
   // Initialize theme
   initializeTheme();
 
@@ -3037,4 +3040,75 @@ function initInteractiveBackground() {
   });
   // Init center
   updateVars(lastPos.x, lastPos.y);
+}
+
+// ==========================================
+// SERVICE WORKER REGISTRATION
+// ==========================================
+function registerServiceWorker() {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then((registration) => {
+          console.log(
+            "Service Worker registered successfully:",
+            registration.scope
+          );
+
+          // Check for updates
+          registration.addEventListener("updatefound", () => {
+            const newWorker = registration.installing;
+            console.log("Service Worker update found");
+
+            newWorker.addEventListener("statechange", () => {
+              if (
+                newWorker.state === "installed" &&
+                navigator.serviceWorker.controller
+              ) {
+                // New version available, show update notification
+                showUpdateNotification();
+              }
+            });
+          });
+        })
+        .catch((error) => {
+          console.log("Service Worker registration failed:", error);
+        });
+    });
+  }
+}
+
+function showUpdateNotification() {
+  // Create update notification
+  const notification = document.createElement("div");
+  notification.className = "update-notification";
+  notification.innerHTML = `
+    <div class="update-content">
+      <i class="fas fa-download"></i>
+      <span>A new version is available!</span>
+      <button class="update-btn" onclick="updateApp()">Update</button>
+      <button class="dismiss-btn" onclick="dismissUpdate(this)">×</button>
+    </div>
+  `;
+
+  // Add to page
+  document.body.appendChild(notification);
+
+  // Show with animation
+  setTimeout(() => {
+    notification.classList.add("show");
+  }, 100);
+}
+
+function updateApp() {
+  window.location.reload();
+}
+
+function dismissUpdate(btn) {
+  const notification = btn.closest(".update-notification");
+  notification.classList.remove("show");
+  setTimeout(() => {
+    notification.remove();
+  }, 300);
 }
