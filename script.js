@@ -824,42 +824,44 @@ function setupMobileMenu() {
 }
 
 function setupFooterCategoryLinks() {
-  const footerCategoryLinks = document.querySelectorAll('.footer-category-link');
-  
-  footerCategoryLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+  const footerCategoryLinks = document.querySelectorAll(
+    ".footer-category-link"
+  );
+
+  footerCategoryLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
       e.preventDefault();
-      
+
       const category = link.dataset.category;
-      
+
       // Update the current category
       currentCategory = category;
-      
+
       // Update filter buttons to show the selected category as active
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active');
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.classList.remove("active");
         if (btn.dataset.category === category) {
-          btn.classList.add('active');
+          btn.classList.add("active");
         }
       });
-      
+
       // Reset displayed items for new category
       displayedItems = 12;
-      
+
       // Filter and render tools
       filterAndRenderTools();
-      
+
       // Scroll to tools section smoothly
-      const toolsSection = document.querySelector('.tools-section');
+      const toolsSection = document.querySelector(".tools-section");
       if (toolsSection) {
-        toolsSection.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
+        toolsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
       }
-      
+
       // Update URL hash (optional, for better UX)
-      history.pushState(null, '', `#${category}`);
+      history.pushState(null, "", `#${category}`);
     });
   });
 }
