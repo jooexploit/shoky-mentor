@@ -40,9 +40,11 @@
 ## 🚀 Quick Start
 
 ### 🌍 **Live Demo**
+
 **Visit the live site**: [https://jooexploit.github.io/shoky-mentor/](https://jooexploit.github.io/shoky-mentor/)
 
 ### 📋 **Prerequisites**
+
 - A modern web browser (Chrome, Firefox, Safari, Edge)
 - Basic understanding of HTML, CSS, and JavaScript (for contributions)
 
@@ -76,7 +78,7 @@
 Deploy to GitHub Pages in minutes:
 
 1. **Fork this repository**
-2. **Enable GitHub Pages**: Settings → Pages → Source: GitHub Actions  
+2. **Enable GitHub Pages**: Settings → Pages → Source: GitHub Actions
 3. **Your site will be live at**: `https://yourusername.github.io/shoky-mentor/`
 
 See [GITHUB_PAGES.md](GITHUB_PAGES.md) for detailed deployment instructions.
