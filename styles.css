@@ -1914,6 +1914,40 @@ body {
     color: var(--accent-color);
 }
 
+/* Enhanced footer category links */
+.footer-category-link {
+    position: relative;
+    display: inline-block;
+    padding: 0.25rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer-category-link:hover {
+    color: var(--accent-color) !important;
+    transform: translateX(4px);
+}
+
+.footer-category-link::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.footer-category-link:hover::before {
+    width: 0.75rem;
+}
+
+[data-theme="dark"] .footer-category-link:hover {
+    color: var(--accent-color) !important;
+}
+
 .social-links {
     display: flex;
     gap: 1rem;
