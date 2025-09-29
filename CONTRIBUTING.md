@@ -1,8 +1,8 @@
-# Contributing to Frontend Tools Hub
+# Contributing to Shoky Mentor
 
 First off, thanks for taking the time to contribute! 🎉
 
-The following is a set of guidelines for contributing to Frontend Tools Hub. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
+The following is a set of guidelines for contributing to Shoky Mentor. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
 ## Table of Contents
 
@@ -433,4 +433,4 @@ Contributors will be recognized in:
 - GitHub contributors graph
 - Release notes for significant contributions
 
-Thank you for contributing to Frontend Tools Hub! 🚀
+Thank you for contributing to Shoky Mentor! 🚀

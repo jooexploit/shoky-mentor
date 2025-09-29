@@ -1,4 +1,4 @@
-# 🚀 Frontend Tools Hub
+# 🚀 Shoky Mentor
 
 **Your ultimate frontend development companion** - Discover, learn, and create with the best tools in the industry.
 

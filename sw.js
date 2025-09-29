@@ -1,4 +1,4 @@
-// Service Worker for Frontend Tools Hub
+// Service Worker for Shoky Mentor
 // Provides basic caching for improved performance and offline functionality
 
 const CACHE_NAME = "frontend-tools-hub-v2.0.0";
@@ -161,9 +161,7 @@ self.addEventListener("push", (event) => {
     },
   };
 
-  event.waitUntil(
-    self.registration.showNotification("Frontend Tools Hub", options)
-  );
+  event.waitUntil(self.registration.showNotification("Shoky Mentor", options));
 });
 
 // Handle notification clicks

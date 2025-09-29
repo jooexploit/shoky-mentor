@@ -5,7 +5,7 @@ body:
 - type: markdown
   attributes:
   value: |
-  Thanks for contributing to Frontend Tools Hub! Please fill out this template to help us review your changes.
+  Thanks for contributing to Shoky Mentor! Please fill out this template to help us review your changes.
 
 - type: textarea
   id: description
@@ -21,10 +21,11 @@ body:
   attributes:
   label: Type of Change
   description: What type of change is this?
-  options: - Bug fix (non-breaking change which fixes an issue) - New feature (non-breaking change which adds functionality)  
-   - Breaking change (fix or feature that would cause existing functionality to not work as expected) - Documentation update - Style/UI improvement - Performance optimization - Code refactoring - Tool addition
-  validations:
-  required: true
+  options: - Bug fix (non-breaking change which fixes an issue) - New feature (non-breaking change which adds functionality)
+
+  - Breaking change (fix or feature that would cause existing functionality to not work as expected) - Documentation update - Style/UI improvement - Performance optimization - Code refactoring - Tool addition
+    validations:
+    required: true
 
 - type: textarea
   id: testing
