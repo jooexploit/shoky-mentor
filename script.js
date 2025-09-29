@@ -876,6 +876,7 @@ function openMobileMenu() {
   if (mobileMenuToggle && mobileMenu) {
     mobileMenuToggle.classList.add("active");
     mobileMenu.classList.add("active");
+    document.body.classList.add("mobile-menu-open");
 
     // Sync search input values
     const mainSearchInput = document.getElementById("searchInput");
@@ -896,6 +897,7 @@ function closeMobileMenu() {
   if (mobileMenuToggle && mobileMenu) {
     mobileMenuToggle.classList.remove("active");
     mobileMenu.classList.remove("active");
+    document.body.classList.remove("mobile-menu-open");
 
     // Announce to screen readers
     announceToScreenReader("Mobile menu closed");
